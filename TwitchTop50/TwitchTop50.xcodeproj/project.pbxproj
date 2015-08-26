@@ -14,7 +14,9 @@
 		4412A6EB1B8BDB190046DDA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4412A6EA1B8BDB190046DDA8 /* Assets.xcassets */; };
 		4412A6EE1B8BDB190046DDA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4412A6EC1B8BDB190046DDA8 /* LaunchScreen.storyboard */; };
 		4412A6F91B8BDB190046DDA8 /* TwitchTop50Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412A6F81B8BDB190046DDA8 /* TwitchTop50Tests.swift */; };
-		4412A7041B8BE0390046DDA8 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412A7031B8BE0390046DDA8 /* RestClient.swift */; };
+		4412A7041B8BE0390046DDA8 /* TwitchAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412A7031B8BE0390046DDA8 /* TwitchAPIClient.swift */; };
+		445C39B91B8D607500A5B883 /* TTGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C39B81B8D607500A5B883 /* TTGame.swift */; };
+		445C39BC1B8D66E900A5B883 /* TTGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C39BB1B8D66E900A5B883 /* TTGameCell.swift */; };
 		44A0D6751B8BF08800F737BB /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A0D6741B8BF08800F737BB /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,8 +32,8 @@
 
 /* Begin PBXFileReference section */
 		4412A6DD1B8BDB190046DDA8 /* TwitchTop50.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitchTop50.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4412A6E01B8BDB190046DDA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4412A6E21B8BDB190046DDA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4412A6E01B8BDB190046DDA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = TwitchTop50/AppDelegate.swift; sourceTree = "<group>"; };
+		4412A6E21B8BDB190046DDA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = TwitchTop50/ViewController.swift; sourceTree = "<group>"; };
 		4412A6E51B8BDB190046DDA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4412A6E81B8BDB190046DDA8 /* TwitchTop50.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitchTop50.xcdatamodel; sourceTree = "<group>"; };
 		4412A6EA1B8BDB190046DDA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,7 +42,9 @@
 		4412A6F41B8BDB190046DDA8 /* TwitchTop50Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitchTop50Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4412A6F81B8BDB190046DDA8 /* TwitchTop50Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchTop50Tests.swift; sourceTree = "<group>"; };
 		4412A6FA1B8BDB190046DDA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4412A7031B8BE0390046DDA8 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		4412A7031B8BE0390046DDA8 /* TwitchAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitchAPIClient.swift; path = TwitchTop50/TwitchAPIClient.swift; sourceTree = "<group>"; };
+		445C39B81B8D607500A5B883 /* TTGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTGame.swift; path = TwitchTop50/Classes/TTGame.swift; sourceTree = "<group>"; };
+		445C39BB1B8D66E900A5B883 /* TTGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTGameCell.swift; path = TwitchTop50/Classes/TTGameCell.swift; sourceTree = "<group>"; };
 		44A0D6731B8BF08800F737BB /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftyJSON.h; path = TwitchTop50/SwiftyJSON.h; sourceTree = "<group>"; };
 		44A0D6741B8BF08800F737BB /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = TwitchTop50/SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +70,11 @@
 		4412A6D41B8BDB190046DDA8 = {
 			isa = PBXGroup;
 			children = (
+				445C39B71B8D600A00A5B883 /* AppDelegate */,
+				445C39B61B8D5FFE00A5B883 /* ViewControllers */,
+				445C39B51B8D5FF400A5B883 /* Models */,
+				445C39B41B8D5FED00A5B883 /* Views */,
+				445C39BA1B8D61CF00A5B883 /* Sync */,
 				44A0D6711B8BF06700F737BB /* Dependencies */,
 				4412A6DF1B8BDB190046DDA8 /* TwitchTop50 */,
 				4412A6F71B8BDB190046DDA8 /* TwitchTop50Tests */,
@@ -86,14 +95,11 @@
 		4412A6DF1B8BDB190046DDA8 /* TwitchTop50 */ = {
 			isa = PBXGroup;
 			children = (
-				4412A6E01B8BDB190046DDA8 /* AppDelegate.swift */,
-				4412A6E21B8BDB190046DDA8 /* ViewController.swift */,
 				4412A6E41B8BDB190046DDA8 /* Main.storyboard */,
 				4412A6EA1B8BDB190046DDA8 /* Assets.xcassets */,
 				4412A6EC1B8BDB190046DDA8 /* LaunchScreen.storyboard */,
 				4412A6EF1B8BDB190046DDA8 /* Info.plist */,
 				4412A6E71B8BDB190046DDA8 /* TwitchTop50.xcdatamodeld */,
-				4412A7031B8BE0390046DDA8 /* RestClient.swift */,
 			);
 			path = TwitchTop50;
 			sourceTree = "<group>";
@@ -105,6 +111,46 @@
 				4412A6FA1B8BDB190046DDA8 /* Info.plist */,
 			);
 			path = TwitchTop50Tests;
+			sourceTree = "<group>";
+		};
+		445C39B41B8D5FED00A5B883 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				445C39BB1B8D66E900A5B883 /* TTGameCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		445C39B51B8D5FF400A5B883 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				445C39B81B8D607500A5B883 /* TTGame.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		445C39B61B8D5FFE00A5B883 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4412A6E21B8BDB190046DDA8 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		445C39B71B8D600A00A5B883 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4412A6E01B8BDB190046DDA8 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		445C39BA1B8D61CF00A5B883 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				4412A7031B8BE0390046DDA8 /* TwitchAPIClient.swift */,
+			);
+			name = Sync;
 			sourceTree = "<group>";
 		};
 		44A0D6711B8BF06700F737BB /* Dependencies */ = {
@@ -232,9 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4412A7041B8BE0390046DDA8 /* RestClient.swift in Sources */,
+				4412A7041B8BE0390046DDA8 /* TwitchAPIClient.swift in Sources */,
 				4412A6E31B8BDB190046DDA8 /* ViewController.swift in Sources */,
+				445C39BC1B8D66E900A5B883 /* TTGameCell.swift in Sources */,
 				4412A6E11B8BDB190046DDA8 /* AppDelegate.swift in Sources */,
+				445C39B91B8D607500A5B883 /* TTGame.swift in Sources */,
 				44A0D6751B8BF08800F737BB /* SwiftyJSON.swift in Sources */,
 				4412A6E91B8BDB190046DDA8 /* TwitchTop50.xcdatamodeld in Sources */,
 			);
