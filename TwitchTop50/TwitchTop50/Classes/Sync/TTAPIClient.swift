@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TwitchAPIClient {
+class TTAPIClient {
  
     class func getDataFromURL(url: NSURL, completion:(NSArray?, NSError?) -> Void) {
         let session = NSURLSession.sharedSession()
@@ -24,18 +24,7 @@ class TwitchAPIClient {
                 var games: [TTGame] = []
                 
                 for (_, gameInfo):(String, JSON) in json["top"] {
-                    
-                    let id = gameInfo["game"]["_id"]
-                    let name = gameInfo["game"]["name"]
-                    let viewers = gameInfo["viewers"]
-                    let image = gameInfo["game"]["box"]["medium"]
-                    
-                    let imageUrl: NSURL = NSURL(string: image.stringValue)!
-                                        
-                    let gameInfo = TTGame(id: id.numberValue, name: name.stringValue, viewers: viewers.numberValue, imageUrl: imageUrl)
-                    
-                    games.append(gameInfo)
-                    
+                    games.append(self.convertToGame(gameInfo))
                 }
                 
                 completion(games, nil)
@@ -44,6 +33,17 @@ class TwitchAPIClient {
         })
         
         dataTask.resume()
+    }
+    
+    class func convertToGame(json: JSON) -> TTGame {
+        let id = json["game"]["_id"]
+        let name = json["game"]["name"]
+        let viewers = json["viewers"]
+        let image = json["game"]["box"]["medium"]
+        
+        let imageUrl: NSURL = NSURL(string: image.stringValue)!
+        
+        return TTGame(id: id.numberValue, name: name.stringValue, viewers: viewers.numberValue, imageUrl: imageUrl)
     }
     
 }

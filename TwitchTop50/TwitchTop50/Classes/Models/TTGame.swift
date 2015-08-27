@@ -10,10 +10,10 @@ import Foundation
 
 class TTGame : NSObject {
 
-    var id: NSNumber?
-    var name: String?
-    var viewers: NSNumber?
-    var imageUrl: NSURL?
+    var id: NSNumber
+    var name: String
+    var viewers: NSNumber
+    var imageUrl: NSURL
     
     init(id: NSNumber, name: String, viewers: NSNumber, imageUrl: NSURL) {
         self.id = id

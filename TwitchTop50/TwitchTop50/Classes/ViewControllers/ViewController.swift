@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func loadGamesData() {
         let twitchURL: NSURL = NSURL(string: "https://api.twitch.tv/kraken/games/top?limit=50&offset=50")!
         
-        TwitchAPIClient.getDataFromURL(twitchURL,
+        TTAPIClient.getDataFromURL(twitchURL,
             completion: { (games: NSArray?, error: NSError?) -> Void in
                 
                 if let _ = error {
@@ -63,7 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 self.games = games as! [TTGame]
-                                
+                
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tableView.reloadData()
                     self.refreshControl.endRefreshing()
@@ -80,16 +80,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let gameInfo: TTGame = self.games[row]
         
         cell.nameLabel?.text = gameInfo.name
-        cell.viewersLabel?.text = "Viewers: \(gameInfo.viewers!)"
+        cell.viewersLabel?.text = "Viewers: \(gameInfo.viewers)"
         
-        var image: UIImage? = imageCache.objectForKey(gameInfo.id!) as? UIImage
+        var image: UIImage? = imageCache.objectForKey(gameInfo.id) as? UIImage
         
         if image != nil {
             cell.gameImage?.image = image
         } else {
             cell.gameImage?.image = UIImage(imageLiteral: "empty_image")
             
-            let request: NSURLRequest = NSURLRequest(URL: gameInfo.imageUrl!)
+            let request: NSURLRequest = NSURLRequest(URL: gameInfo.imageUrl)
             
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 
@@ -99,7 +99,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 image = UIImage(data: data!)
                 
-                self.imageCache.setObject(image!, forKey: gameInfo.id!)
+                self.imageCache.setObject(image!, forKey: gameInfo.id)
                 
                 if self.tableView.cellForRowAtIndexPath(indexPath) != nil {
                     cell.gameImage?.image = image
