@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  TwitchTop50
+
+  Created by Rodrigo Soares on 28/08/15.
+  Copyright © 2015 Rodrigo Borges. All rights reserved.
+*/
+
+"Twitch Top 50" = "Twitch Top 50";
+"Ocorreu um problema ao tentar baixar a lista de jogos :(" = "Ocorreu um problema ao tentar baixar a lista de jogos :(";
+"Visualizações: %ld" = "Visualizações: %ld";
