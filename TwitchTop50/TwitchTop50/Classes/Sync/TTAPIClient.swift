@@ -10,24 +10,18 @@ import Foundation
 
 class TTAPIClient {
  
-    class func getDataFromURL(url: NSURL, completion:(NSArray?, NSError?) -> Void) {
+    // Fetch data from Twitch
+    class func getDataFromURL(url: NSURL, completion:([TTGame], NSError?) -> Void) {
         let session = NSURLSession.sharedSession()
         
         let dataTask = session.dataTaskWithURL(url, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-        
+            
             if let errorOcurred = error {
-                completion(nil, errorOcurred)
+                completion([], errorOcurred)
             } else {
-                
                 let json = JSON(data: data!)
-                
-                var games: [TTGame] = []
-                
-                for (_, gameInfo):(String, JSON) in json["top"] {
-                    games.append(self.convertToGame(gameInfo))
-                }
-                
-                completion(games, nil)
+        
+                completion(self.convertToGame(json), nil)
             }
             
         })
@@ -35,15 +29,24 @@ class TTAPIClient {
         dataTask.resume()
     }
     
-    class func convertToGame(json: JSON) -> TTGame {
-        let id = json["game"]["_id"]
-        let name = json["game"]["name"]
-        let viewers = json["viewers"]
-        let image = json["game"]["box"]["medium"]
+    // Convert JSON to Array of TTGame
+    class func convertToGame(json: JSON) -> [TTGame] {
         
-        let imageUrl: NSURL = NSURL(string: image.stringValue)!
+        var games: [TTGame] = []
         
-        return TTGame(id: id.numberValue, name: name.stringValue, viewers: viewers.numberValue, imageUrl: imageUrl)
+        for (_, gameInfo):(String, JSON) in json["top"] {
+            
+            let id = gameInfo["game"]["_id"]
+            let name = gameInfo["game"]["name"]
+            let viewers = gameInfo["viewers"]
+            let image = gameInfo["game"]["box"]["medium"]
+            
+            let game: TTGame = TTGame(id: id.numberValue, name: name.stringValue, viewers: viewers.numberValue, imageUrl: image.stringValue)
+            
+            games.append(game)
+        }
+    
+        return games
     }
     
 }

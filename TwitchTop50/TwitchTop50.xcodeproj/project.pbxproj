@@ -19,6 +19,9 @@
 		442FE1161B8F78C40028E5F6 /* TTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442FE1151B8F78C40028E5F6 /* TTAPIClient.swift */; };
 		442FE1191B8F78D80028E5F6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442FE1181B8F78D80028E5F6 /* SwiftyJSON.swift */; };
 		445C39BE1B8D88D500A5B883 /* TwitchAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C39BD1B8D88D500A5B883 /* TwitchAPIClientTests.swift */; };
+		4477832F1B900E3700FD2311 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4477832E1B900E3700FD2311 /* Localizable.strings */; };
+		448A87C31B8FE15200A7AED3 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448A87C11B8FE15200A7AED3 /* Game+CoreDataProperties.swift */; };
+		448A87C41B8FE15200A7AED3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448A87C21B8FE15200A7AED3 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		442FE1171B8F78D80028E5F6 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftyJSON.h; path = TwitchTop50/Classes/Dependencies/SwiftyJSON/SwiftyJSON.h; sourceTree = "<group>"; };
 		442FE1181B8F78D80028E5F6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = TwitchTop50/Classes/Dependencies/SwiftyJSON/SwiftyJSON.swift; sourceTree = "<group>"; };
 		445C39BD1B8D88D500A5B883 /* TwitchAPIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitchAPIClientTests.swift; sourceTree = "<group>"; };
+		4477832E1B900E3700FD2311 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		448A87C11B8FE15200A7AED3 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Game+CoreDataProperties.swift"; path = "TwitchTop50/Classes/Models/Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		448A87C21B8FE15200A7AED3 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = TwitchTop50/Classes/Models/Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 				4412A6EC1B8BDB190046DDA8 /* LaunchScreen.storyboard */,
 				4412A6EF1B8BDB190046DDA8 /* Info.plist */,
 				4412A6E71B8BDB190046DDA8 /* TwitchTop50.xcdatamodeld */,
+				4477832E1B900E3700FD2311 /* Localizable.strings */,
 			);
 			path = TwitchTop50;
 			sourceTree = "<group>";
@@ -128,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				442FE1111B8F78A40028E5F6 /* TTGame.swift */,
+				448A87C11B8FE15200A7AED3 /* Game+CoreDataProperties.swift */,
+				448A87C21B8FE15200A7AED3 /* Game.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -262,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4412A6EE1B8BDB190046DDA8 /* LaunchScreen.storyboard in Resources */,
+				4477832F1B900E3700FD2311 /* Localizable.strings in Resources */,
 				4412A6EB1B8BDB190046DDA8 /* Assets.xcassets in Resources */,
 				4412A6E61B8BDB190046DDA8 /* Main.storyboard in Resources */,
 			);
@@ -282,10 +292,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				442FE10E1B8F78780028E5F6 /* AppDelegate.swift in Sources */,
+				448A87C41B8FE15200A7AED3 /* Game.swift in Sources */,
 				442FE1121B8F78A40028E5F6 /* TTGame.swift in Sources */,
 				442FE1191B8F78D80028E5F6 /* SwiftyJSON.swift in Sources */,
 				442FE1141B8F78B40028E5F6 /* TTGameCell.swift in Sources */,
 				442FE1161B8F78C40028E5F6 /* TTAPIClient.swift in Sources */,
+				448A87C31B8FE15200A7AED3 /* Game+CoreDataProperties.swift in Sources */,
 				442FE1101B8F788B0028E5F6 /* ViewController.swift in Sources */,
 				4412A6E91B8BDB190046DDA8 /* TwitchTop50.xcdatamodeld in Sources */,
 			);
@@ -417,11 +429,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TwitchTop50/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = borges.TwitchTop50;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -429,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TwitchTop50/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -13,9 +13,9 @@ class TTGame : NSObject {
     var id: NSNumber
     var name: String
     var viewers: NSNumber
-    var imageUrl: NSURL
+    var imageUrl: String
     
-    init(id: NSNumber, name: String, viewers: NSNumber, imageUrl: NSURL) {
+    init(id: NSNumber, name: String, viewers: NSNumber, imageUrl: String) {
         self.id = id
         self.name = name
         self.viewers = viewers
